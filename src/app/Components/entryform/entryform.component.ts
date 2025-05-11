@@ -5,6 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { EntryData } from '../../Models/EntryData';
 
 @Component({
   selector: 'app-entryform',
@@ -21,7 +22,7 @@ export class EntryformComponent {
     ]),
   });
 
-  entryFormSubmission = output<{ name: string; phoneNumber: string }>();
+  entryFormSubmission = output<EntryData>();
 
   onSubmit() {
     const name = this.entryForm.controls.name.value!;

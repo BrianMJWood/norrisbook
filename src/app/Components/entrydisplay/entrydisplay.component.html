@@ -1,3 +1,6 @@
-@for (entry of entries(); track $index) { {{ entry.name }} -
-{{ entry.phoneNumber }} - {{ entry.joke }}
-<button (click)="onRemoveEntry(entry)">Remove</button>}
+@for (entry of entries(); track $index) {
+<div [style.background-color]="isFibonacci($index)">
+  {{ entry.name }} - {{ entry.phoneNumber }} - {{ entry.joke }}
+  <button (click)="onRemoveEntry(entry)">Remove</button>
+</div>
+}

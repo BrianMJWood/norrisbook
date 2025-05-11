@@ -1,5 +1,6 @@
 import { Component, input, output } from '@angular/core';
 import { Entry } from '../../Models/Entry';
+import { fibonacciCheck } from '../../Utils/FibonacciCheck';
 
 @Component({
   selector: 'app-entrydisplay',
@@ -13,5 +14,9 @@ export class EntrydisplayComponent {
 
   onRemoveEntry(entry: Entry) {
     this.removeEntry.emit(entry);
+  }
+
+  isFibonacci(index: number) {
+    return fibonacciCheck(index);
   }
 }
