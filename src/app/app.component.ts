@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { EntrydisplayComponent } from './Components/entrydisplay/entrydisplay.component';
+import { EntryformComponent } from './Components/entryform/entryform.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [EntrydisplayComponent, EntryformComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'norrisbook';

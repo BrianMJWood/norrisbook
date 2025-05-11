@@ -1,1 +1,10 @@
-<p>entryform works!</p>
+<form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name:</label>
+  <input id="name-input" type="text" formControlName="name" />
+
+  <label for="phoneNumber">Phone Number</label>
+  <input id="phone-number-input" type="text" formControlName="phoneNumber" />
+  <button id="submit-button" type="submit" [disabled]="entryForm.invalid">
+    Save
+  </button>
+</form>
