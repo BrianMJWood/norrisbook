@@ -1,7 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { EntrydisplayComponent } from './Components/entrydisplay/entrydisplay.component';
 import { EntryformComponent } from './Components/entryform/entryform.component';
 import { Entry } from './Models/Entry';
+import { JokeService } from './Service/joke.service';
+import { map, tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,16 +12,25 @@ import { Entry } from './Models/Entry';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  jokeService = inject(JokeService);
+
   entries = signal<Entry[]>([]);
 
   handleEntryFormSubmission(data: any) {
-    const newEntry: Entry = {
-      id: '',
-      name: data.name,
-      phoneNumber: data.phoneNumber,
-      joke: '',
-    };
+    this.jokeService
+      .getJoke()
+      .pipe(
+        map((val) => ({
+          id: val.id,
+          name: data.name,
+          phoneNumber: data.phoneNumber,
+          joke: val.value,
+        })),
+        tap((val) => console.log(val))
+      )
 
-    this.entries.update((entries) => [...entries, newEntry]);
+      .subscribe({
+        next: (val) => this.entries.update((entries) => [...entries, val]),
+      });
   }
 }
