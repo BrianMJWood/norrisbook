@@ -1,18 +1,33 @@
 <form [formGroup]="entryForm" (ngSubmit)="onSubmit()" class="entry-form">
-  <mat-form-field>
-    <input matInput id="name-input" formControlName="name" placeholder="Name"
-  /></mat-form-field>
+  <div class="mat-form-field-wrapper">
+    <mat-form-field>
+      <input
+        matInput
+        id="name-input"
+        formControlName="name"
+        placeholder="Name"
+      />@if (nameIsInvalid) {
+      <mat-error>Must be at least 2 characters</mat-error>
+      }</mat-form-field
+    >
+  </div>
+  <div class="mat-form-field-wrapper">
+    <mat-form-field>
+      <input
+        matInput
+        id="phone-number-input"
+        formControlName="phoneNumber"
+        placeholder="Phone"
+      />
+      @if (phoneNumberIsInvalid) {
+      <mat-error>Must be 10 numbers only</mat-error>
+      }
+    </mat-form-field>
+  </div>
 
-  <mat-form-field>
-    <input
-      matInput
-      id="phone-number-input"
-      formControlName="phoneNumber"
-      placeholder="Phone"
-    />
-  </mat-form-field>
   <button
     id="submit-button"
+    class="submit-button"
     type="submit"
     [disabled]="entryForm.invalid"
     mat-flat-button

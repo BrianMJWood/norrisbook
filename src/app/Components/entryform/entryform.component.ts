@@ -38,4 +38,20 @@ export class EntryformComponent {
     this.entryFormSubmission.emit({ name, phoneNumber });
     this.entryForm.reset();
   }
+
+  get nameIsInvalid() {
+    return (
+      this.entryForm.controls.name.touched &&
+      this.entryForm.controls.name.dirty &&
+      this.entryForm.controls.name.invalid
+    );
+  }
+
+  get phoneNumberIsInvalid() {
+    return (
+      this.entryForm.controls.phoneNumber.touched &&
+      this.entryForm.controls.phoneNumber.dirty &&
+      this.entryForm.controls.phoneNumber.invalid
+    );
+  }
 }
