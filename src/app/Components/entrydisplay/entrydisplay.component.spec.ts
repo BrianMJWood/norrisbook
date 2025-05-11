@@ -8,12 +8,12 @@ describe('EntrydisplayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EntrydisplayComponent]
-    })
-    .compileComponents();
+      imports: [EntrydisplayComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EntrydisplayComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('entries', []);
     fixture.detectChanges();
   });
 
