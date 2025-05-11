@@ -1,7 +1,11 @@
 @if (displayEntries()) {
 <div class="entry-display">
   @for (entry of entries(); track $index) {
-  <div [style.background-color]="isFibonacci($index)" class="entry">
+  <div
+    [style.background-color]="isFibonacci($index)"
+    id="entry-{{ $index }}"
+    class="entry"
+  >
     {{ entry.name }} - {{ entry.phoneNumber }} - {{ entry.joke }}
 
     <mat-icon (click)="onRemoveEntry(entry)">close</mat-icon>
