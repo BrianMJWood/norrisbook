@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Entry } from '../../Models/Entry';
 
 @Component({
@@ -9,4 +9,9 @@ import { Entry } from '../../Models/Entry';
 })
 export class EntrydisplayComponent {
   entries = input<Entry[]>();
+  removeEntry = output<Entry>();
+
+  onRemoveEntry(entry: Entry) {
+    this.removeEntry.emit(entry);
+  }
 }

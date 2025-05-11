@@ -4,6 +4,7 @@ import { EntryformComponent } from './Components/entryform/entryform.component';
 import { Entry } from './Models/Entry';
 import { JokeService } from './Service/joke.service';
 import { map, tap } from 'rxjs';
+import { EntryData } from './Models/EntryData';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent {
 
   entries = signal<Entry[]>([]);
 
-  handleEntryFormSubmission(data: any) {
+  handleEntryFormSubmission(data: EntryData) {
     this.jokeService
       .getJoke()
       .pipe(
@@ -25,12 +26,15 @@ export class AppComponent {
           name: data.name,
           phoneNumber: data.phoneNumber,
           joke: val.value,
-        })),
-        tap((val) => console.log(val))
+        }))
       )
-
       .subscribe({
         next: (val) => this.entries.update((entries) => [...entries, val]),
       });
+  }
+
+  handleRemoveEntry(data: Entry) {
+    const newEntries = this.entries().filter((entry) => entry.id !== data.id);
+    this.entries.update(() => [...newEntries]);
   }
 }
