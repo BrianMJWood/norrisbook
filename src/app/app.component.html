@@ -1,1 +1,4 @@
-<app-entryform></app-entryform> <app-entrydisplay></app-entrydisplay>
+<app-entryform
+  (entryFormSubmission)="handleEntryFormSubmission($event)"
+></app-entryform>
+<app-entrydisplay [entries]="entries()"></app-entrydisplay>

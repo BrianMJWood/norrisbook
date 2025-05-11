@@ -1,1 +1,3 @@
-<p>entrydisplay works!</p>
+@for (entry of entries(); track $index) { {{ entry.name }} -
+{{ entry.phoneNumber }}
+}

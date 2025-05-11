@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -21,7 +21,12 @@ export class EntryformComponent {
     ]),
   });
 
+  entryFormSubmission = output<{ name: string; phoneNumber: string }>();
+
   onSubmit() {
-    console.log(this.entryForm.value);
+    const name = this.entryForm.controls.name.value!;
+    const phoneNumber = this.entryForm.controls.phoneNumber.value!;
+    this.entryFormSubmission.emit({ name, phoneNumber });
+    this.entryForm.reset();
   }
 }
