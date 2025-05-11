@@ -1,7 +1,9 @@
-<app-entryform
-  (entryFormSubmission)="handleEntryFormSubmission($event)"
-></app-entryform>
-<app-entrydisplay
-  [entries]="entries()"
-  (removeEntry)="handleRemoveEntry($event)"
-></app-entrydisplay>
+<div class="app-wrapper">
+  <app-entryform
+    (entryFormSubmission)="handleEntryFormSubmission($event)"
+  ></app-entryform>
+  <app-entrydisplay
+    [entries]="entries()"
+    (removeEntry)="handleRemoveEntry($event)"
+  ></app-entrydisplay>
+</div>

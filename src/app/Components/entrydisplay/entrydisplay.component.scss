@@ -1,0 +1,19 @@
+.entry-display {
+  display: grid;
+  margin: 1rem;
+  border: 2px, black, solid;
+}
+
+mat-icon {
+  color: red;
+  overflow: visible;
+
+  cursor: pointer;
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  vertical-align: mi;
+  margin: 1rem;
+}

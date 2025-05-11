@@ -6,10 +6,18 @@ import {
   Validators,
 } from '@angular/forms';
 import { EntryData } from '../../Models/EntryData';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-entryform',
-  imports: [ReactiveFormsModule],
+  imports: [
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+  ],
   templateUrl: './entryform.component.html',
   styleUrl: './entryform.component.scss',
 })

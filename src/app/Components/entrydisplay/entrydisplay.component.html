@@ -1,6 +1,12 @@
-@for (entry of entries(); track $index) {
-<div [style.background-color]="isFibonacci($index)">
-  {{ entry.name }} - {{ entry.phoneNumber }} - {{ entry.joke }}
-  <button (click)="onRemoveEntry(entry)">Remove</button>
+@if (displayEntries()) {
+<div class="entry-display">
+  @for (entry of entries(); track $index) {
+  <div [style.background-color]="isFibonacci($index)" class="entry">
+    {{ entry.name }} - {{ entry.phoneNumber }} - {{ entry.joke }}
+
+    <mat-icon (click)="onRemoveEntry(entry)">close</mat-icon>
+  </div>
+  }
 </div>
+
 }

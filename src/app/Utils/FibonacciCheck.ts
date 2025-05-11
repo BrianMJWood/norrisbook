@@ -1,6 +1,6 @@
 export const fibonacciCheck: (N: any) => string = (N: any) => {
   if (N == 0 || N == 1) {
-    return 'green';
+    return 'lightgreen';
   }
 
   let a = 0,
@@ -13,7 +13,7 @@ export const fibonacciCheck: (N: any) => string = (N: any) => {
     b = c;
 
     if (c == N) {
-      return 'green';
+      return 'lightgreen';
     } else if (c >= N) {
       return '';
     }

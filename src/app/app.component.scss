@@ -1,0 +1,9 @@
+.app-wrapper {
+  display: flex;
+}
+
+@media only screen and (max-width: 768px) {
+  .app-wrapper {
+    display: grid;
+  }
+}

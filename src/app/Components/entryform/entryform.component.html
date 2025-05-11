@@ -1,10 +1,22 @@
-<form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
-  <label for="name">Name:</label>
-  <input id="name-input" type="text" formControlName="name" />
+<form [formGroup]="entryForm" (ngSubmit)="onSubmit()" class="entry-form">
+  <mat-form-field>
+    <input matInput id="name-input" formControlName="name" placeholder="Name"
+  /></mat-form-field>
 
-  <label for="phoneNumber">Phone Number</label>
-  <input id="phone-number-input" type="text" formControlName="phoneNumber" />
-  <button id="submit-button" type="submit" [disabled]="entryForm.invalid">
+  <mat-form-field>
+    <input
+      matInput
+      id="phone-number-input"
+      formControlName="phoneNumber"
+      placeholder="Phone"
+    />
+  </mat-form-field>
+  <button
+    id="submit-button"
+    type="submit"
+    [disabled]="entryForm.invalid"
+    mat-flat-button
+  >
     Save
   </button>
 </form>
