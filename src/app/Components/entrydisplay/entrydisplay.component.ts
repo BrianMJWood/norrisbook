@@ -1,4 +1,10 @@
-import { Component, computed, input, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+  output,
+} from '@angular/core';
 import { Entry } from '../../Models/Entry';
 import { fibonacciCheck } from '../../Utils/FibonacciCheck';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatButtonModule, MatIconModule],
   templateUrl: './entrydisplay.component.html',
   styleUrl: './entrydisplay.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EntrydisplayComponent {
   entries = input.required<Entry[]>();

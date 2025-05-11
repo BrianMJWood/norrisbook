@@ -1,4 +1,9 @@
-import { Component, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { EntrydisplayComponent } from './Components/entrydisplay/entrydisplay.component';
 import { EntryformComponent } from './Components/entryform/entryform.component';
 import { Entry } from './Models/Entry';
@@ -11,6 +16,7 @@ import { EntryData } from './Models/EntryData';
   imports: [EntrydisplayComponent, EntryformComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   jokeService = inject(JokeService);

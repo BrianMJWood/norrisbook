@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -20,6 +20,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
   ],
   templateUrl: './entryform.component.html',
   styleUrl: './entryform.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EntryformComponent {
   entryForm = new FormGroup({
