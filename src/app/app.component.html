@@ -1,6 +1,7 @@
 <div class="app-wrapper">
   <app-entryform
     (entryFormSubmission)="handleEntryFormSubmission($event)"
+    [serviceError]="serviceError"
   ></app-entryform>
   <app-entrydisplay
     [entries]="entries()"

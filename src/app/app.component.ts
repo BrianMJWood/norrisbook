@@ -20,8 +20,8 @@ import { EntryData } from './Models/EntryData';
 })
 export class AppComponent {
   jokeService = inject(JokeService);
-
   entries = signal<Entry[]>([]);
+  serviceError: string = '';
 
   handleEntryFormSubmission(data: EntryData) {
     this.jokeService
@@ -36,6 +36,10 @@ export class AppComponent {
       )
       .subscribe({
         next: (val) => this.entries.update((entries) => [...entries, val]),
+        error: (err) => {
+          console.log(err);
+          this.serviceError = err;
+        },
       });
   }
 

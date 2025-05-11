@@ -34,4 +34,9 @@
   >
     Save
   </button>
+  @if (serviceError()) {
+  <span
+    >Error: {{ serviceError() }} There was an error submitting your form, please
+    try again. </span
+  >}
 </form>

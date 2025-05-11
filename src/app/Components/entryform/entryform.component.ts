@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -30,7 +35,7 @@ export class EntryformComponent {
       Validators.pattern(/^\d{10}$/),
     ]),
   });
-
+  serviceError = input<string>();
   entryFormSubmission = output<EntryData>();
 
   onSubmit() {
